@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Galerija slika</title>
+    <style>
+        
+        /* Add some basic styling to the gallery */
+        .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-gap: 10px;
+          margin: 20px;
+        }
+  
+        /* Style the images */
+        .gallery img {
+          max-width: 100%;
+          height: auto;
+          object-fit: cover;
+          cursor: pointer;
+        }
+  
+        /* Add some basic styling to the lightbox */
+        #lightbox {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.9);
+          z-index: 9999;
+        }
+  
+        /* Style the image in the lightbox */
+        #lightbox img {
+          max-height: 100%;
+          max-width: 100%;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+        body {
+        background-image: url("pkoto.avif");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      </style>
+  </head>
+  <body>
+    
+
+    
+    <h1 style="color: red;">Galerija slika</h1>
+    <div class="gallery">
+      <img src="petra1.jpg" alt="Image 1" onclick="showImage(this)">
+      <img src="petra2.jpg" alt="Image 2" onclick="showImage(this)">
+      <img src="petra3.jpg" alt="Image 3" onclick="showImage(this)">
+      <img src="petra4.jpg" alt="Image 4" onclick="showImage(this)">
+      <img src="petra5.jpg" alt="Image 5" onclick="showImage(this)">
+      <img src="petra6.jpg" alt="Image 6" onclick="showImage(this)">
+      <img src="petra7.jpg" alt="Image 7" onclick="showImage(this)">
+      <img src="petra8.jpg" alt="Image 8" onclick="showImage(this)">  
+
+    </div>
+    <div id="lightbox" onclick="hideImage()">
+        <img src="" alt="" id="lightbox-img">
+      </div>
+    <script>
+        function showImage(img) {
+          var lightbox = document.getElementById("lightbox");
+          var lightboxImg = document.getElementById("lightbox-img");
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+        }
+        function hideImage() {
+          var lightbox = document.getElementById("lightbox");
+          lightbox.style.display = "none";
+        }
+      </script>
+  </body>
+</html>

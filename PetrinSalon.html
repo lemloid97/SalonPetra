@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <style>
+        .images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.images{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images img {
+  width: 20%;
+  height: auto;
+  margin: 10px;
+}
+.fullscreen-image {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);  /* Change the background-color value */
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.fullscreen-image img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 1;
+}
+
+#close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+} 
+        body {
+    background-image: url(pkoto.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.8;
+
+    font-family: Arial, sans-serif;
+  }
+  header{
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    background-color: #333;
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  main {
+    margin: 20px;
+  }
+  section {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+
+    </style>
+  <meta charset="UTF-8">
+  <title>Petra's Nail Salon</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function showPopup() {
+      alert("Vas termin je zakazan");
+    }
+  </script>
+
+</head>
+<body>
+    <audio controls>
+      <source src="Floating Home - Brian Bolger.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="images">
+        <img src="1.jpg" id="Image 1">
+        <img src="2.jpg" id="Image 2">
+        <img src="3.jpg" id="Image 3">
+        <img src="4.jpg" id="Image 4">
+        <img src="5.jpg" id="Image 5">
+        <img src="6.jpg" id="Image 6">
+      </div>
+      <div class="fullscreen-image">
+        <img src="" id="fullscreen-img">
+        <button id="close-btn">Zatvoriti</button>
+      </div>
+      
+  <header>
+    <script>
+        document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    const fullScreenImage = document.querySelector('.fullscreen');
+    close.fullScreenImage
+    
+  }
+});
+    </script>
+    <script>
+        document.querySelector("img").addEventListener("click", function() {
+  // Display fullscreen image
+  let fullscreen = document.createElement("div");
+  fullscreen.classList.add("fullscreen");
+  let fullscreenImg = document.createElement("img");
+  fullscreenImg.classList.add("fullscreen-img");
+  fullscreenImg.src = this.src;
+  fullscreen.appendChild(fullscreenImg);
+  document.body.appendChild(fullscreen);
+
+  // Add event listener to close fullscreen image
+  fullscreen.addEventListener("click", function() {
+    fullscreen.remove();
+  });
+});
+    </script>
+    
+    <script>
+        const images = document.querySelectorAll(".images img");
+        const fullscreenImage = document.querySelector(".fullscreen-image");
+        const fullscreenImg = document.querySelector("#fullscreen-img");
+        const closeBtn = document.querySelector("#close-btn");
+
+images.forEach(img => {
+  img.addEventListener("click", function() {
+    fullscreenImg.src = this.src;
+    fullscreenImage.style.display = "flex";
+  });
+});
+
+closeBtn.addEventListener("click", function() {
+  fullscreenImage.style.display = "none";
+});
+
+    </script>
+    
+    
+    <script>
+        
+    document.getElementById("booking-link").addEventListener("click", function(event) {
+    event.preventDefault();
+  
+     let target = document.querySelector("#booking-section").offsetTop;
+    let startPosition = window.pageYOffset;
+     let distance = target - startPosition;
+    let duration = 6000; // 6 seconds
+     let startTime = null;
+  
+     function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    let timeElapsed = currentTime - startTime;
+    let run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+  
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+  
+  requestAnimationFrame(animation);
+});
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(event) {
+     event.preventDefault();
+     alert("Thank you for your booking request. We will get back to you shortly to confirm your appointment.");
+});
+    
+    </script>
+    
+    <h1 style="color: crimson;"><i>Dobrodosli u Petrin salon za manikuru.<i></h1>
+  </header>
+  <nav>
+    <ul>
+        
+      <li style="color: rgb(64, 150, 165);"><a style="color: rgb(64, 150, 165);" href="#services">Usluge</a></li>
+      <li style="color: rgb(64, 150, 165);"><a style="color: rgb(64, 150, 165);" href="#pricing">Cijene</a></li>
+      <li style="color: rgb(64, 150, 165);"><a style="color: rgb(64, 150, 165);" href="#booking">Zakazivanje</a></li>
+      <li style="color: rgb(64, 150, 165);"><a style="color: rgb(64, 150, 165);" href="#gallery"><a style="color: rgb(64, 150, 165);" href="newpageGallery.html">Galerija slika</a></a></li>
+    </ul>
+    
+  </nav>
+  <main>
+    <section id="services">
+      <h2 style="color: rgba(221, 34, 34, 0.575);"><i>Usluge<i></h2>
+      <p>Kontinuirana nadopuna asortimana koji se pružaju unutar malog,
+         simpatičnog studia ljepote,
+          najbolji je dokaz kako se mnogo pažnje i ljubavi posvećuje stručnom usavršavanju u želji da se pruži vrhunska usluga.
+           Osnovna ponuda je njega ruku i uređivanje noktiju,
+            a nadalje tu su tretmani: njega nogu, masaža, depilacija,
+            ekstenzije trepavica, make up-a i mnogobrojni drugi tretmani
+             koji se uvode u studio Petra nails.</p>
+    </section>
+    <section id="pricing">
+      <h2 style="color: rgba(221, 34, 34, 0.575);"><i>Cijenik<i></h2>
+      <table>
+        <tr>
+          <th>Usluga za njegu noktiju</th>
+          <th>Cijena</th>
+        </tr>
+        <tr>
+          <td>Manikura(kompletna obrada noktiju, potiskivanje kozice, poliranje lak u boji, nadlak.)</td>
+          <td>15€</td>
+        </tr>
+        <tr>
+            <td>Francuska manikura(kompletna obrada noktiju, potiskivanje kozice, french lak, nadlak.)</td>
+            <td>15€</td>
+        </tr>
+        <tr>
+            <td>Ugradnja noktiju(tipse)</td>
+            <td>30€</td>
+        </tr>
+        <tr>
+            <td>Ugradnja noktiju(tipse)</td>
+            <td>30€</td>
+        </tr>
+        <tr>
+            <td>Trajni lak</td>
+            <td>35€</td>
+        </tr>
+        <tr>
+            <td>Popravak noktiju(po noktu)</td>
+            <td>3.5€</td>
+        </tr>
+        <tr>
+            <td>Nail art(po noktu)</td>
+            <td>1.5€</td>
+        </tr>
+        <tr>
+            <th>Usluga za njegu stopala</th>
+            <th>Cijena</th>
+        </tr>
+        <tr>
+            <td>Manikura noktiju</td>
+            <td>9€</td>
+        </tr>
+        <tr>
+            <td>Njega stopala(manikura noktiju + uredjivanje kompletnog stopala)</td>
+            <td>9€</td>
+        </tr>
+        <tr>
+            <td>Lakiranje noktiju</td>
+            <td>5€</td>
+        </tr>
+        <tr>
+            <td>Njega stopala + trajni lak</td>
+            <td>30€</td>
+        </tr>
+        <tr>
+            <td>Trajni lak</td>
+            <td>18€</td>
+        </tr>
+        <tr>
+            <td>Spa njega stopala(piling stopala + masaza stopala)</td>
+            <td>5€</td>
+        </tr>
+        <tr>
+            <td>Medicinski tretman noktiju</td>
+            <td>25€</td>
+        </tr>
+        
+
+      </table>
+    </section>
+    <section id="booking">
+      <h2 style="color:rgba(221, 34, 34, 0.575);"><i>Zakazivanje termina<i></h2>
+      <p>Da bi ste zakazali Vas termin, nazovite na broj +385911560120 ili popunite formular ispod:</p>
+      <form>
+        <label for="name">Ime:</label>
+        <input type="text" id="name" required><br><br>
+        <label for="surname">Prezime:</label>
+        <input type="text" id="surname" required><br><br>
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" required><br><br>
+        <label for="email">Email adresa:</label>
+        <input type="email" id="email" required><br><br>
+        <label for="appt-date">Datum termina:</label>
+        <input type="date" id="appt-date" required><br><br>
+        <label for="appt-time">Vrijeme termina:</label>
+        <input type="time" id="appt-time" required><br><br>
+        <input type="submit" value="Zakazati" button onclick="showPopup()"></button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    
+    <h3>Radno vrijeme</h3>
+
+    <table bgcolor = "black">
+        <tr bgcolor = "grey">
+            <th width = "100">Ponedeljak</th>
+            <th width = "100">Utorak</th>
+            <th width = "100">Sreda</th>
+            <th width = "100">Cetvrtak</th>
+            <th width = "100">Petak</th>
+            <th width = "100">Subota</th>
+            <th width = "100">Nedelja</th>
+        </tr>
+        <tr bgcolor = "lightgrey" align="center">
+            <td>07:00 - 20:00</td>
+            <td>07:00 - 20:00</td>
+            <td>07:00 - 20:00</td>
+            <td>07:00 - 20:00</td>
+            <td>07:00 - 20:00</td>
+            <td>08:00 - 16:00</td>
+            <td>ZATVORENO</td>
+        </tr>
+    </table>
+    <p>&copy; Petra's nail salon.</p>
+  </footer>
+  <script src="script.js"></script>
+  
+</body>
+</html>
